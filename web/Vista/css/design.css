@@ -1,0 +1,379 @@
+
+/*pagina en general*/
+
+*{
+    margin:0px;
+    padding: 0px;
+}
+
+.fuente{
+    font-family: 'Source Sans Pro', sans-serif;
+}
+.center-text{
+    text-align: center;
+}
+body{
+    background-color: #ecf0f1;
+}
+.sombra{	
+    box-shadow: 2px 3px 3px #bdc3c7;
+}
+.border-panel
+{
+    border-radius: 5px;
+}
+.titulo-secciones
+{
+    background-color: white;
+
+    padding: 10px 0px;
+    font-size: 30px
+}
+
+.text-pequeno{
+    font-size: 20px;
+}
+.text-color-white{
+    color: white;
+}
+/*header*/
+.arriba{
+    position: fixed;
+    top: 0;
+    right: 0;
+    float:right;
+    background-color: #fff;
+    margin:0px 50px;
+    padding: 10px;
+
+    border-radius: 0px 0px 5px 5px;
+}
+.arriba a{
+    text-decoration: none;
+    color: #000;
+}
+.banner{
+    background-image: url("../imagenes/baner.png");
+    clear: both;
+    width: 1000px;
+    max-width: 100%;
+    height: 300px;
+    margin: 20px auto;
+    margin-bottom: 0px;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    overflow: hidden;	
+}
+
+.titulo-banner{
+    float:left;
+    font-size: 60px;
+    margin: 10px;
+}
+/*menu*/
+.Menu{
+    margin: 0px;
+    margin: auto;
+    width: 1000px;
+    max-width: 100%;
+    overflow: hidden;
+    background-color:#819FF7;
+}
+ul,ol{
+    list-style: none;	
+}
+.navegador li a{
+    background-color:#819FF7;
+    color: black;
+    text-decoration: none;
+    margin: 0px;
+    padding: 10px;
+    padding-right:30px; 
+    display: block; 
+
+}
+.navegador li a:hover{
+    background-color: #fff;
+    color: #000;
+}
+
+.navegador > li{
+    float:left;
+}
+
+.navegador li ul{
+    display: none;
+    position: absolute;
+    min-width: 140px;
+}
+.navegador li:hover>ul{
+    display: block;
+}
+
+.centrar-menu{
+    margin-left: 250px;
+}
+
+.seccion{
+    width: 1000px;
+    margin: 20px auto;
+    overflow: hidden;
+    padding: 0px;
+}
+
+/*seccion home*/
+.opciones-home	{
+
+    display: inline-block;
+    width: 450px;
+    background-color:#fff;
+    margin: 20px 21px;		
+    border-radius: 10px;
+    overflow: hidden;
+    height: 300px;
+}
+.opciones-home img{
+    margin: 10px;
+    border-radius: 3px;
+}
+.titulo-home{
+    background-color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+}
+.menus-home{
+    width: 400px;
+    float: left;
+    margin: 10px;
+    padding: 0px;
+    border-radius: 5px;
+    border: 2px solid #819FF7;
+    background-color: #A9E2F3;
+    box-shadow: 1px 3px 3px #7f8c8d;
+    height: 200px;
+}
+.menus-home ul a{
+    text-decoration: none;
+    padding: 5px;
+    display: block;		
+    border-radius: 5px;
+    font-size: 15px;
+    color: #000;
+}
+.menus-home ul a:hover{
+    background-color: #819FF7;
+    color: #fff;
+}
+
+/*seccion-Reg-Animales*/
+.seccion-R-Animal
+{
+   
+    background-color: #fff;
+
+
+}
+.panel-rojo
+{
+    background-color: #D60000;
+    padding: 10px;
+    margin: 10px;
+}
+.conjunto-registrar
+{
+    width: 700px;
+    margin: 10px auto;
+}
+
+.tablaMascota{
+   
+    float: left;
+    width: 100px;
+    
+}
+
+.tablaHospitalizacion{
+   
+    float: left;
+    width: 300px;
+    
+}
+
+.conjunto-registrar > table{
+    margin:10px auto;
+}
+.conjunto-eliminar
+{
+
+}
+.tamano-cajas
+{
+    width: 180px;
+    max-width: 100%;
+    margin: 10px 10px;
+}
+
+.abajo{
+    margin-top: 100px;
+    float: bottom;
+    width: 70%;
+    
+    
+}
+
+.boton{
+   
+    width: 300px;
+    height: 40px;
+    padding: 0px 10px;
+    margin: 10px auto;
+    font-size: 20pt;
+    background: #819FF7;
+    border: 0px;
+    color: white;
+    border-radius: 3px;
+    text-shadow:0px 2px 2px #4f4e4e;
+    -moz-text-shadow:0px 2px 2px #4f4e4e;
+    -webkit-text-shadow:0px 2px 2px #4f4e4e;
+}
+.boton:hover
+{
+    background-color: white;
+    color: #000;
+}
+.boton-pequeno
+{
+    width: 200px;
+    height: 30px;
+    padding: 0px 10px;
+    margin: 10px auto;
+    font-size: 15pt;
+    background: #819FF7;
+    border: 0px;
+    color: white;
+    border-radius: 3px;
+    text-shadow:0px 2px 2px #4f4e4e;
+    -moz-text-shadow:0px 2px 2px #4f4e4e;
+    -webkit-text-shadow:0px 2px 2px #4f4e4e;
+}
+.boton-pequeno:hover
+{
+    background-color: white;
+    color: #000;
+}
+.tabla-sReportesGestion
+{
+    border-radius: 10px;
+    margin: 20px;
+    background: #ecf0f1;
+}
+.tabla-sReportesGestion-boton
+{
+    width: 300px;
+    height: 40px;
+    padding: 0px 10px;
+    margin: 10px auto;
+    font-size: 15pt;
+    background: #D60000;
+    border: 0px;
+    color: white;
+    border-radius: 3px;
+    text-shadow:0px 2px 2px #4f4e4e;
+    -moz-text-shadow:0px 2px 2px #4f4e4e;
+    -webkit-text-shadow:0px 2px 2px #4f4e4e;
+}
+.tabla-sReportesGestion-boton:hover
+{
+    background-color: white;
+    color: #000;
+}
+.tabla
+{
+    border-radius: 10px;
+    background: #819FF7;
+    margin: 10px;
+    width: 600px;
+}
+.titulo-tablas
+{	
+    text-shadow:0px 1px 1px #4f4e4e;
+    -moz-text-shadow:0px 1px 1px #4f4e4e;
+    -webkit-text-shadow:0px 1px 1px #4f4e4e;
+
+}
+.color-filas-pares
+{
+    background-color: #ecf0f1;
+}
+.color-filas-impares
+{
+    background-color: #fff;
+}
+
+.cajas-tablas
+{
+    margin: 0px auto;
+    padding: 5px 30px;
+}
+
+.alert{
+    margin: auto;
+    margin-top: 10px;
+    width: 1000px;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+thead{
+    color: #fff;
+    background-color: #819FF7;
+}
+
+.tamañoConsultar{
+    display: inline;
+    width: 20%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+.tamañoConsultar[disabled],
+.tamañoConsultar[readonly],
+fieldset[disabled] .tamañoConsultar {
+  background-color: #eee;
+  opacity: 1;
+}
+.tamañoConsultar:focus {
+  border-color: #66afe9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+          box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+}
+.tamañoConsultar::-moz-placeholder {
+  color: #999;
+  opacity: 1;
+}
+.tamañoConsultar:-ms-input-placeholder {
+  color: #999;
+}
+.tamañoConsultar::-webkit-input-placeholder {
+  color: #999;
+}
+.tamañoConsultar::-ms-expand {
+  background-color: transparent;
+  border: 0;
+}
+
+
