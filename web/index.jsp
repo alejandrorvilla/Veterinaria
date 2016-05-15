@@ -4,6 +4,11 @@
     Author     : Alejandro Ramirez
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%  String sesion = session.getAttribute("sesion") + "";
+    if (!sesion.equals("null")) {
+        response.sendRedirect("menu.jsp");
+    }
+%>
 <!DOCTYPE html>
 <html lang="es">
     <head>

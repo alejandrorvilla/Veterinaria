@@ -77,14 +77,16 @@ public class DAOEmpleado {
         } catch (SQLException ex) {
             exito = false;
         } finally {
-            stmt.close();
-            conn.close();
+            if(stmt != null && conn != null){
+                stmt.close();
+                conn.close();
+            }
         }
         return exito;
     }
     
     /**
-     * Metodo que se conecta a la base de datos y registra los datos de los empleados.
+     * Metodo que se conecta a la base de datos y consulta los datos de los empleados.
      * @param informacion Contenido que debe cumplir la columna por la que se
      * busca a los empleados.
      * @param columna Nombre de la columna por la que se desea buscar a los
@@ -93,7 +95,7 @@ public class DAOEmpleado {
      * @throws java.lang.Exception Exception originada por fallo en la conexion
      * o error al consultar los empleados.
      */
-    public ArrayList<EmpleadoDTO> consultarClientes(String columna, String informacion) throws Exception {
+    public ArrayList<EmpleadoDTO> consultarEmpleados(String columna, String informacion) throws Exception {
         ArrayList<EmpleadoDTO> dtos = new ArrayList<>();
         conn = Conexion.generarConexion();
         String sql = "";
@@ -163,8 +165,10 @@ public class DAOEmpleado {
         } catch (SQLException ex){
             exito = false;
         }finally {
-            stmt.close();
-            conn.close();
+            if(stmt != null && conn != null){
+                stmt.close();
+                conn.close();
+            }
         }
         return exito;
     }

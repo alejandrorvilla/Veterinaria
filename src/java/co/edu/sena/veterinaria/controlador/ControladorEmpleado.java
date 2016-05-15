@@ -137,7 +137,6 @@ public class ControladorEmpleado extends HttpServlet {
             else
                 request.getSession().setAttribute("msjCE", "No se encontró ningún empleado");
         } catch (Exception ex) {
-            ex.printStackTrace();
             request.getSession().setAttribute("msjCE", "Error en la conexión a la base de datos");
         } finally {
             response.sendRedirect("/Veterinaria/ConsultarEmpleado.jsp");

@@ -5,11 +5,13 @@
  */
 package co.edu.sena.veterinaria.modelo.dto;
 
+import java.io.Serializable;
+
 /**
- * Clase de transferencia de datos de DAOExamen.
+ * Clase de transferencia de datos de un examen.
  * @author Alejandro Ramirez
  */
-public class ExamenDTO {
+public class ExamenDTO implements Serializable{
     
     private int codigo;
     private String notas, nombre;

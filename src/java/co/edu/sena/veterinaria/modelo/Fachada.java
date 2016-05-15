@@ -5,18 +5,23 @@
  */
 package co.edu.sena.veterinaria.modelo;
 
+import co.edu.sena.veterinaria.modelo.dao.DAOCliente;
 import co.edu.sena.veterinaria.modelo.dao.DAOEmpleado;
 import co.edu.sena.veterinaria.modelo.dao.DAOExamen;
+import co.edu.sena.veterinaria.modelo.dao.DAOServicio;
+import co.edu.sena.veterinaria.modelo.dto.ClienteDTO;
 import co.edu.sena.veterinaria.modelo.dto.EmpleadoDTO;
 import co.edu.sena.veterinaria.modelo.dto.ExamenDTO;
+import co.edu.sena.veterinaria.modelo.dto.ServicioDTO;
 import co.edu.sena.veterinaria.modelo.seguridad.MD5;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Clase fachada.
  * @author Alejandro Ramirez
  */
-public class Fachada {
+public class Fachada implements Serializable{
     
     /**
      * Metodo que llama al metodo iniciarSesion de DAOEmpleado.
@@ -47,7 +52,6 @@ public class Fachada {
     public boolean registrarEmpleado(String nombre, String apellido, String email, 
             String direccion, long dni, long telefono, String tipo, String pass) throws Exception{
         String contraseña = MD5.encriptar(pass);
-        System.out.println("pass: " + contraseña);
         DAOEmpleado dao = new DAOEmpleado();
         return dao.registrarEmpleado(new EmpleadoDTO(nombre, apellido, email, 
                 direccion, dni, telefono, tipo, contraseña));
@@ -62,7 +66,7 @@ public class Fachada {
      */
     public ArrayList<EmpleadoDTO> consultarEmpleado(String columna, String info) throws Exception{
         DAOEmpleado dao = new DAOEmpleado();
-        return dao.consultarClientes(columna, info);
+        return dao.consultarEmpleados(columna, info);
     }
     
     /**
@@ -98,4 +102,92 @@ public class Fachada {
         DAOExamen dao = new DAOExamen();
         return dao.consultarExamenes();
     }
+    
+    /**
+     * Metodo que envia la peticion a DAOCliente para registrar un cliente.
+     * @param nombre Nombre de la persona.
+     * @param apellido Apellido de la persona.
+     * @param email Correo electronico de la persona.
+     * @param direccion Direccion de residencia de la persona.
+     * @param dni Documento nacional de identificacion de la persona.
+     * @param telefono Numero telefonico de la persona.
+     * @param celular Numero de celular del cliente.
+     * @return True si se registro el cliente, false si no se registro.
+     * @throws Exception Si existe un error en la conexion a la base de datos.
+     */
+    public boolean registrarCliente(String nombre, String apellido, String email, 
+            String direccion, long dni, long telefono, long celular) throws Exception{
+        ClienteDTO dto = new ClienteDTO(celular, nombre, apellido, email, direccion, dni, telefono);
+        DAOCliente dao = new DAOCliente();
+        return dao.registrarCliente(dto);
+    }
+    
+    /**
+     * Metodo que envia la peticion a DAOCliente para consultar los clientes.
+     * @param columna Columna por la que se va a buscar (dni, nom o Todos);
+     * @param info Informacion que debe cumplir la columna por la que se busca.
+     * @return ArrayList de EmpleadoDTO.
+     * @throws java.lang.Exception Si existe un error al conectarse a la base de datos.
+     */
+    public ArrayList<ClienteDTO> consultarClientes(String columna, String info) throws Exception{
+        DAOCliente dao = new DAOCliente();
+        return dao.consultarClientes(columna, info);
+    }
+    
+    /**
+     * Metodo que envia la peticion a DAOCliente para actualizar un cliente.
+     * @param nombre Nombre de la persona.
+     * @param apellido Apellido de la persona.
+     * @param email Correo electronico de la persona.
+     * @param direccion Direccion de residencia de la persona.
+     * @param dni Documento nacional de identificacion de la persona que se va actualizar.
+     * @param telefono Numero telefonico de la persona.
+     * @param celular Numero de celular del cliente.
+     * @return True si se actualizo el cliente, false si no se actualizo.
+     * @throws Exception Si existe un error en la conexion a la base de datos.
+     */
+    public boolean actualizarCliente(String nombre, String apellido, String email, 
+            String direccion, long dni, long telefono, long celular) throws Exception{
+        ClienteDTO dto = new ClienteDTO(celular, nombre, apellido, email, direccion, dni, telefono);
+        DAOCliente dao = new DAOCliente();
+        return dao.actualizarCliente(dto);
+    }
+    
+    /**
+     * Metodo que envia la peticion a DAOServicio para registrar un servicio.
+     * @param nombre String con el nombre del servicio.
+     * @param caracter String con el caracter o grupo del servicio
+     * @param notas String con notas, instrucciones y/o apuntes sobre el servicio.
+     * @return True si se registro el servicio, false si no se registro.
+     * @throws Exception Si existe un error en la conexion a la base de datos.
+     */
+    public boolean registrarServicio(String nombre, String notas, String caracter) throws Exception{
+        DAOServicio dao = new DAOServicio();
+        return dao.registrarServicio(new ServicioDTO(nombre, caracter, notas));
+    }
+    
+    /**
+     * Metodo que envia la peticion a DAOServicio para consultar los servicios.
+     * @param columna Columna por la que se va a buscar (cod, nom o Todos);
+     * @param info Informacion que debe cumplir la columna por la que se busca.
+     * @return ArrayList de ServicioDTO.
+     * @throws java.lang.Exception Si existe un error al conectarse a la base de datos.
+     */
+    public ArrayList<ServicioDTO> consultarServicios(String columna, String info) throws Exception{
+        DAOServicio dao = new DAOServicio();
+        return dao.consultarServicios(columna, info);
+    }
+    
+    /**
+     * Metodo que llama al DAOServicio para habilitar o deshabilitar al servicio según sea el caso.
+     * @param cod Codigo del servicio a modificar.
+     * @param nuevoEstado Nuevo estado del servicio.
+     * @return True si se modifico, false si no lo hizo.
+     * @throws Exception Error al conectarse a la base de datos.
+     */
+    public boolean modificarEstadoServicio(int cod, boolean nuevoEstado) throws Exception {
+        DAOServicio dao = new DAOServicio();
+        return dao.modificarEstadoServicio(cod, nuevoEstado);
+    }
+    
 }

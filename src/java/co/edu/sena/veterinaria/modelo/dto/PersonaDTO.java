@@ -5,11 +5,13 @@
  */
 package co.edu.sena.veterinaria.modelo.dto;
 
+import java.io.Serializable;
+
 /**
  * Clase padre de empleado y cliente.
  * @author Alejandro Ramirez
  */
-public class PersonaDTO {
+public class PersonaDTO implements Serializable{
     
     private String nombre, apellido, email, direccion;
     private long dni, telefono;

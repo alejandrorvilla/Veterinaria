@@ -36,7 +36,7 @@
                 <% if(sesion.equals("Administrador") || sesion.equals("Secretario")) { %>
                 <li><a href="RegistrarClientes.jsp">Registrar</a></li>
                 <% } %>
-                <li><a href="ConsultarClientes.jsp">Consultar</a></li>
+                <li><a href="ConsultarCliente.jsp">Consultar</a></li>
             </ul>
         </li>
     </ul>	

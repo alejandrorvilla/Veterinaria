@@ -11,7 +11,7 @@ $(document).ready(function() {
         datatype: 'json',
         success: function(dtos) {
             var json = eval('(' + dtos + ')');
-            for (var i = 0; i < json.length; i++) {
+            for (var i = json.length - 1; i >= 0; i--) {
                 $("#tabla tbody").after("<tr><td>" + json[i].codigo + "</td><td>"+
                         json[i].nombre + "</td><td>" + json[i].notas + "</td></tr>");
             }

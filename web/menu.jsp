@@ -44,10 +44,10 @@ and open the template in the editor.
                         <div class="titulo-home">Servicios</div>
                         <ul>
                             <li class="vinculos-home">
-                                <a href="RegistrarServicio.html"> Registrar</a>
+                                <a href="RegistrarServicio.jsp"> Registrar</a>
                             </li>
                             <li class="vinculos-home">
-                                <a href="ConsultarServicio.html"> Consultar</a>
+                                <a href="ConsultarServicio.jsp"> Consultar</a>
                             </li>
                         </ul>
                     </div>
@@ -57,11 +57,11 @@ and open the template in the editor.
                         <ul>
                             <% if (sesion.equals("Administrador") || sesion.equals("Secretario")) { %>
                             <li class="vinculos-home">
-                                <a href="RegistrarClientes.html"> Registrar</a>
+                                <a href="RegistrarClientes.jsp"> Registrar</a>
                             </li>
                             <% } %>
                             <li class="vinculos-home">
-                                <a href="ConsultaCliente.html"> Consultar</a>
+                                <a href="ConsultarCliente.jsp"> Consultar</a>
                             </li>
                         </ul>
                     </div>
@@ -70,7 +70,7 @@ and open the template in the editor.
                         <div class="titulo-home">Examenes</div>
                         <ul>
                             <li class="vinculos-home">
-                                <a href="RegistrarExamen.html">Registrar</a>
+                                <a href="RegistrarExamen.jsp">Registrar</a>
                             </li>
                         </ul>
                     </div>

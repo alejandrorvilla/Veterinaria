@@ -65,6 +65,7 @@ public class ControladorExamen extends HttpServlet {
             String notas = request.getParameter("notas");
             out.print(fachada.registrarExamen(nombre, notas));
         } catch (Exception ex) {
+            ex.printStackTrace();
             out.print("Error");
         }
     }

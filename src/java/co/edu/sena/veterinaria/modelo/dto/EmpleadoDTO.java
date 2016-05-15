@@ -5,11 +5,13 @@
  */
 package co.edu.sena.veterinaria.modelo.dto;
 
+import java.io.Serializable;
+
 /**
- * Clase que sirve para transferir los datos de un empleado al DAOEmpleado.
+ * Clase que sirve para transferir los datos de un empleado.
  * @author Alejandro Ramirez
  */
-public class EmpleadoDTO extends PersonaDTO{
+public class EmpleadoDTO extends PersonaDTO implements Serializable{
     
     private String tipo, pass;
     private boolean habilitado;

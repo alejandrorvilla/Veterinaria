@@ -1,39 +1,43 @@
 <%-- 
-    Document   : RegistrarExamen
-    Created on : 27-abr-2016, 7:22:17
-    Author     : Alejandro Ramirez
+    Document   : RegistrarServicio
+    Created on : 15-may-2016, 11:05:33
+    Author     : Alejandro Ramírez
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%  String sesion = session.getAttribute("sesion") + "";
     if (sesion.equals("null") || !sesion.equals("Administrador")) {
         response.sendRedirect("index.jsp");
+
     }
 %>
 <!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Registrar Examen</title>
-        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+        <meta charset="utf-8">
+        <title>Registrar Servicio</title>
         <link rel="stylesheet" href="Vista/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="Vista/css/design.css">
         <link rel="shortcut ico" href="Vista/imagenes/favicon.ico"/>
         <script src="Vista/js/ajax.js"></script>
         <script src="Vista/js/jquery-1.12.3.min.js" ></script>
         <script src="Vista/bootstrap/js/bootstrap.min.js"></script>
-        <script src="Vista/js/examen.js"></script>
     </head>
     <body>
         <jsp:include page="nav.jsp"/>
         <section>
             <div class="seccion fuente">
                 <div class="titulo-secciones border-panel center-text sombra">
-                    <h1 >Registrar Exámen</h1>
+                    <h1 >Registrar Servicio</h1>
                 </div>
                 <div class="seccion seccion-R-Animal border-panel sombra">
-                    <form onSubmit="registrarExamen(document.forms[0]);
-                            return false" id="form">
+                    <form onSubmit="registrarServicio(document.forms[0]);
+                        return false" id="form">
                         <div class="border-panel conjunto-registrar">
                             <table>
                                 <tr>
@@ -41,7 +45,21 @@
                                         <label class="text-pequeno tamano-cajas">Nombre</label>
                                     </td>
                                     <td>
-                                        <input type="text" name="nombre" class="text-pequeno center-text tamano-cajas"/>
+                                        <input required type="text" name="nombre" class="text-pequeno center-text tamano-cajas"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label class="text-pequeno tamano-cajas">Carácter</label>
+                                    </td>
+                                    <td>
+                                        <select required class="text-pequeno center-text tamano-cajas" name="templeado" onChange="combo(this, 'theinput')">
+                                            <option value="">Seleccione</option>
+                                            <option value="Cirugía">Cirugía</option>
+                                            <option value="Higiene">Higiene</option>
+                                            <option value="Vacunación">Vacunación</option>
+                                            <option value="Otros">Otros</option>
+                                        </select>
                                     </td>
                                 </tr>
                                 <tr>
@@ -52,29 +70,17 @@
                                         <textarea class="text-pequeno center-text tamano-cajas"></textarea>
                                     </td>
                                 </tr>
-                            </table>               
+                            </table>                 
                         </div>
                         <div>
                             <center>
-                                <button class="center-text sombra boton" type="submit" name="registrar" class="fuente">Registrar</button>
+                                <button class="center-text sombra boton fuente">Registrar</button>
                             </center>
                         </div>
                     </form>
-                    </section>
-                    <section class="center-text container">
-                        <table class="table" id="tabla">
-                            <thead>
-                                <tr>
-                                    <th class="center-text">Código</th>
-                                    <th class="center-text">Nombre</th>
-                                    <th class="center-text">Notas</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                        </table>
-                    </section>
                 </div>
             </div>
+        </section>
+
     </body>
 </html>

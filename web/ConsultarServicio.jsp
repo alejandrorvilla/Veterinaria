@@ -1,30 +1,35 @@
 <%-- 
-    Document   : ConsultarEmpleado
-    Created on : 25-abr-2016, 14:07:26
-    Author     : Alejandro Ramirez
+    Document   : ConsultarServicio
+    Created on : 15-may-2016, 11:28:48
+    Author     : Alejandro Ramírez
 --%>
 
-<%@page import="co.edu.sena.veterinaria.modelo.dto.EmpleadoDTO"%>
+<%@page import="co.edu.sena.veterinaria.modelo.dto.ServicioDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%  String sesion = session.getAttribute("sesion") + "";
     if (sesion.equals("null") || !sesion.equals("Administrador")) {
         response.sendRedirect("index.jsp");
+
     }
 %>
 <!DOCTYPE html>
-<html lang="es">
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Consultar Empleado</title>
-        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+        <meta charset="utf-8">
+        <title>Consultar Servicio</title>
         <link rel="stylesheet" href="Vista/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="Vista/css/design.css">
         <link rel="shortcut ico" href="Vista/imagenes/favicon.ico"/>
-        <script src="Vista/js/ajax.js"></script>
-        <script src="Vista/js/jquery-1.12.3.min.js" ></script>
-        <script src="Vista/bootstrap/js/bootstrap.min.js"></script>
-        <script src="Vista/js/javascript.js"></script>
+        <script type="text/javascript" src="Vista/js/ajax.js"></script>
+        <script type="text/javascript" src="Vista/js/jquery-1.12.3.min.js" ></script>
+        <script type="text/javascript" src="Vista/bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="Vista/js/javascript.js"></script>
         <script>
             $(document).ready(function () {
                 $('[data-toggle="tooltip"]').tooltip();
@@ -32,9 +37,9 @@
         </script>
     </head>
     <body>
-        <jsp:include page="nav.jsp"/>
+        <jsp:include page="nav.jsp"/>		
         <%
-            String mensaje = session.getAttribute("msjCE") + "";
+            String mensaje = session.getAttribute("msjCS") + "";
             if (!mensaje.equals("null")) {
                 if (mensaje.contains("Error")) {
         %>
@@ -54,14 +59,14 @@
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
         </div>            
         <%      }
-                session.removeAttribute("msjCE");
+                session.removeAttribute("msjCS");
             }
         %>
         <section>
             <div class="center-text">
-                <h1>Consultar Empleado</h1>
+                <h1>Consultar Servicio</h1>
             </div>
-            <form action="/Veterinaria/ControladorEmpleado" method="post">
+            <form action="/Veterinaria/ControladorServicio" method="post">
                 <div class="conjunto-registrar">
                     <div class="center-text">
                         <label for="sel" >Buscar por:</label>  
@@ -69,11 +74,11 @@
                             <option value="" >Seleccione</option>
                             <option value="Todos" >Todos</option>
                             <option value="nom" >Nombre</option>
-                            <option value="dni">DNI</option>
+                            <option value="cod">Código</option>
                         </select>
                         <label for="buscar" >Información:</label> 
                         <input type="text" name="buscar" id="buscar" class="text-pequeno center-text tamano-cajas" /> 
-                        <button class="center-text sombra boton-pequeno" type="submit" name="consultarEmpleado" class="fuente">Consultar</button>	        
+                        <button class="center-text sombra boton-pequeno" type="submit" name="consultarServicio" class="fuente">Consultar</button>	        
                     </div>      
                 </div>
             </form>
@@ -82,45 +87,42 @@
                     <table class="table"  border="0" cellspacing="0">
                         <thead>
                             <tr>
-                                <th class="center-text">DNI</th>
+                                <th class="center-text">Código</th>
                                 <th class="center-text">Nombre</th>
-                                <th class="center-text">Teléfono</th>
-                                <th class="center-text">E-mail</th>
-                                <th class="center-text">Dirección</th>
-                                <th class="center-text">Tipo</th>
+                                <th class="center-text">Carácter</th>
+                                <th class="center-text">Notas</th>
                                 <th class="center-text">Estado</th>
                             </tr>
                         </thead>
                         <tbody>
                             <%
-                                if (session.getAttribute("arrayEmp") instanceof ArrayList) {
-                                    ArrayList<EmpleadoDTO> dtos = (ArrayList) session.getAttribute("arrayEmp");
+                                if (session.getAttribute("arrayServicios") instanceof ArrayList) {
+                                    ArrayList<ServicioDTO> dtos = (ArrayList) session.getAttribute("arrayServicios");
                                     for (int i = 0; i < dtos.size(); i++) {
                             %>
                             <tr>
-                                <td class="center-text"><%=dtos.get(i).getDni()%></td>
-                                <td class="center-text"><%=dtos.get(i).getNombre() + " " + dtos.get(i).getApellido()%></td>
-                                <td class="center-text"><%=dtos.get(i).getTelefono()%></td>
-                                <td class="center-text"><%=dtos.get(i).getEmail()%></td>
-                                <td class="center-text"><%=dtos.get(i).getDireccion()%></td>
-                                <td class="center-text"><%=dtos.get(i).getTipo()%></td>
+                                <td class="center-text"><%=dtos.get(i).getCodigo()%></td>
+                                <td class="center-text"><%=dtos.get(i).getNombre()%></td>
+                                <td class="center-text"><%=dtos.get(i).getCaracter()%></td>
+                                <td class="center-text"><%=dtos.get(i).getNotas()%></td>
                                 <td class="center-text">
                                     <%if (dtos.get(i).isHabilitado()) { %>
-                                    <a href="/Veterinaria/ControladorEmpleado?dni=<%=dtos.get(i).getDni()%>&estado=<%=dtos.get(i).isHabilitado()%>&modificarEstado=true"
+                                    <a href="/Veterinaria/ControladorServicio?cod=<%=dtos.get(i).getCodigo()%>&estado=<%=dtos.get(i).isHabilitado()%>&modificarEstado=true"
                                        data-toggle="tooltip" data-placement="top" title="Habilitado">
                                         <span class="glyphicon glyphicon-ok asd "></span>
                                     </a>
                                     <% } else { %>
-                                    <a href="/Veterinaria/ControladorEmpleado?dni=<%=dtos.get(i).getDni()%>&estado=<%=dtos.get(i).isHabilitado()%>&modificarEstado=true"
+                                    <a href="/Veterinaria/ControladorServicio?cod=<%=dtos.get(i).getCodigo()%>&estado=<%=dtos.get(i).isHabilitado()%>&modificarEstado=true"
                                        data-toggle="tooltip" data-placement="top" title="Deshabilitado">
                                         <span class="glyphicon glyphicon-remove asd "></span>
-                                        <% } %>
                                     </a>
+                                    <% } %>
+                                    
                                 </td>
                             </tr>
                             <%
                                     }
-                                    session.removeAttribute("arrayEmp");
+                                    session.removeAttribute("arrayServicios");
                                 }
                             %>
                         </tbody>
