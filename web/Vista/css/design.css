@@ -1,9 +1,9 @@
 
-/*pagina en general*/
-
-*{
-    margin:0px;
-    padding: 0px;
+.navbar-default{
+    background-color: #819FF7;
+    border-radius: 0;
+    border: 1px solid #e7e7e7;
+    margin-bottom: 6px;
 }
 
 .fuente{
@@ -113,15 +113,10 @@ ul,ol{
     display: block;
 }
 
-.centrar-menu{
-    margin-left: 250px;
-}
-
 .seccion{
-    width: 1000px;
+    width: 100%;
     margin: 20px auto;
     overflow: hidden;
-    padding: 0px;
 }
 
 /*seccion home*/
@@ -146,9 +141,8 @@ ul,ol{
     padding: 10px;
 }
 .menus-home{
-    width: 400px;
-    float: left;
-    margin: 10px;
+    width: 100%;
+    margin-top: 10px;
     padding: 0px;
     border-radius: 5px;
     border: 2px solid #819FF7;
@@ -157,22 +151,18 @@ ul,ol{
     height: 200px;
 }
 .menus-home ul a{
-    text-decoration: none;
-    padding: 5px;
-    display: block;		
+    padding-top: 5px;
+    display: block;
+    margin-left: 0px;
     border-radius: 5px;
     font-size: 15px;
     color: #000;
-}
-.menus-home ul a:hover{
-    background-color: #819FF7;
-    color: #fff;
 }
 
 /*seccion-Reg-Animales*/
 .seccion-R-Animal
 {
-   
+
     background-color: #fff;
 
 
@@ -185,22 +175,20 @@ ul,ol{
 }
 .conjunto-registrar
 {
-    width: 700px;
+    width: 100%;
     margin: 10px auto;
 }
 
 .tablaMascota{
-   
-    float: left;
-    width: 100px;
-    
+    width: 20px;
+
 }
 
 .tablaHospitalizacion{
-   
+
     float: left;
     width: 300px;
-    
+
 }
 
 .conjunto-registrar > table{
@@ -218,15 +206,15 @@ ul,ol{
 }
 
 .abajo{
-    margin-top: 100px;
+    margin-top: 10px;
     float: bottom;
     width: 70%;
-    
-    
+
+
 }
 
 .boton{
-   
+
     width: 300px;
     height: 40px;
     padding: 0px 10px;
@@ -354,28 +342,28 @@ thead{
 .tamañoConsultar[disabled],
 .tamañoConsultar[readonly],
 fieldset[disabled] .tamañoConsultar {
-  background-color: #eee;
-  opacity: 1;
+    background-color: #eee;
+    opacity: 1;
 }
 .tamañoConsultar:focus {
-  border-color: #66afe9;
-  outline: 0;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
-          box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+    border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
 }
 .tamañoConsultar::-moz-placeholder {
-  color: #999;
-  opacity: 1;
+    color: #999;
+    opacity: 1;
 }
 .tamañoConsultar:-ms-input-placeholder {
-  color: #999;
+    color: #999;
 }
 .tamañoConsultar::-webkit-input-placeholder {
-  color: #999;
+    color: #999;
 }
 .tamañoConsultar::-ms-expand {
-  background-color: transparent;
-  border: 0;
+    background-color: transparent;
+    border: 0;
 }
 
 

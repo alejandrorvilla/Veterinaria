@@ -29,58 +29,67 @@ and open the template in the editor.
         <script src="Vista/bootstrap/js/bootstrap.min.js"></script>
     </head>
     <body>
-        <jsp:include page="nav.jsp"/>
-        <section>
-            <div class="seccion fuente">
-                <div class="titulo-secciones border-panel center-text sombra">
-                    <h1 >Registrar Servicio</h1>
-                </div>
-                <div class="seccion seccion-R-Animal border-panel sombra">
-                    <form onSubmit="registrarServicio(document.forms[0]);
-                        return false" id="form">
-                        <div class="border-panel conjunto-registrar">
-                            <table>
-                                <tr>
-                                    <td>
-                                        <label class="text-pequeno tamano-cajas">Nombre</label>
-                                    </td>
-                                    <td>
-                                        <input required type="text" name="nombre" class="text-pequeno center-text tamano-cajas"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="text-pequeno tamano-cajas">Carácter</label>
-                                    </td>
-                                    <td>
-                                        <select required class="text-pequeno center-text tamano-cajas" name="templeado" onChange="combo(this, 'theinput')">
-                                            <option value="">Seleccione</option>
-                                            <option value="Cirugía">Cirugía</option>
-                                            <option value="Higiene">Higiene</option>
-                                            <option value="Vacunación">Vacunación</option>
-                                            <option value="Otros">Otros</option>
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="text-pequeno tamano-cajas">Notas</label>
-                                    </td>
-                                    <td>
-                                        <textarea class="text-pequeno center-text tamano-cajas"></textarea>
-                                    </td>
-                                </tr>
-                            </table>                 
+
+        <section class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <jsp:include page="nav.jsp"/>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="seccion fuente">
+                                <div class="titulo-secciones border-panel center-text sombra">
+                                    <h1 >Registrar Servicio</h1>
+                                </div>
+                                <div id="alerta"></div>
+                                <div class="seccion seccion-R-Animal border-panel sombra">
+                                    <form onSubmit="registrarServicio(document.forms[0]);
+                            return false" id="form">
+                                        <div class="border-panel conjunto-registrar">
+                                            <table>
+                                                <tr>
+                                                    <td>
+                                                        <label class="text-pequeno tamano-cajas">Nombre</label>
+                                                    </td>
+                                                    <td>
+                                                        <input required type="text" name="nombre" class="text-pequeno center-text tamano-cajas"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <label class="text-pequeno tamano-cajas">Carácter</label>
+                                                    </td>
+                                                    <td>
+                                                        <select required class="text-pequeno center-text tamano-cajas" name="templeado" onChange="combo(this, 'theinput')">
+                                                            <option value="">Seleccione</option>
+                                                            <option value="Cirugía">Cirugía</option>
+                                                            <option value="Higiene">Higiene</option>
+                                                            <option value="Vacunación">Vacunación</option>
+                                                            <option value="Otros">Otros</option>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <label class="text-pequeno tamano-cajas">Notas</label>
+                                                    </td>
+                                                    <td>
+                                                        <textarea class="text-pequeno center-text tamano-cajas"></textarea>
+                                                    </td>
+                                                </tr>
+                                            </table>                 
+                                        </div>
+                                        <div>
+                                            <center>
+                                                <button class="center-text sombra boton fuente">Registrar</button>
+                                            </center>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <center>
-                                <button class="center-text sombra boton fuente">Registrar</button>
-                            </center>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </section>
-
     </body>
 </html>

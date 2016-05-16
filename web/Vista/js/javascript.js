@@ -32,3 +32,9 @@ function formActualizarCliente(dni, nombre, apellido, telefono, email, direccion
     document.getElementById("celular").value = celular;
     document.getElementById("form-oculto").submit();
 }
+
+function formRegistrarMascota(dni) {
+    document.getElementById("form-oculto").action="RegistrarMascota.jsp";
+    document.getElementById("dni").value = dni;
+    document.getElementById("form-oculto").submit();
+}

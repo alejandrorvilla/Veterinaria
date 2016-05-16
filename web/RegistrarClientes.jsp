@@ -28,82 +28,91 @@ and open the template in the editor.
         <script src="Vista/bootstrap/js/bootstrap.min.js"></script>
         <title>Registrar Cliente</title>
     </head>
-    <body>
-        <jsp:include page="nav.jsp"/>	
-        <section>
-            <div class="seccion fuente">
-                <div class="titulo-secciones border-panel center-text sombra">
-                    <h1 >Registrar cliente</h1>
-                </div>
-                <div class="seccion seccion-R-Animal border-panel sombra">
-                    <form onSubmit="registrarCliente(document.forms[0]);
-                        return false" id="form">
-                        <div class="border-panel conjunto-registrar">
-                            <table>
-                                <tr>
-                                    <td>
-                                        <label class="text-pequeno tamano-cajas">DNI:</label>
-                                    </td>
-                                    <td>
-                                        <input required type="number"  name="dni" maxlength="4" class="text-pequeno center-text tamano-cajas"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="text-pequeno tamano-cajas">Nombres:</label>
-                                    </td>
-                                    <td>
-                                        <input required type="text" name="nombre" class="text-pequeno center-text tamano-cajas"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="text-pequeno tamano-cajas">Apellidos:</label>
-                                    </td>
-                                    <td>
-                                        <input required type="text" name="apellido" class="text-pequeno center-text tamano-cajas"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="text-pequeno tamano-cajas">Celular:</label>
-                                    </td>
-                                    <td>
-                                        <input type="number" name="celular" class="text-pequeno center-text tamano-cajas"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="text-pequeno tamano-cajas">Dirección:</label>
-                                    </td>
-                                    <td>
-                                        <input type="text" name="direccion" class="text-pequeno center-text tamano-cajas"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="text-pequeno tamano-cajas">Email:</label>
-                                    </td>
-                                    <td>
-                                        <input type="email" name="email" class="text-pequeno center-text tamano-cajas"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="text-pequeno tamano-cajas">Teléfono:</label>
-                                    </td>
-                                    <td>
-                                        <input type="number" name="telefono" class="text-pequeno center-text tamano-cajas"/>
-                                    </td>
-                                </tr>
-                            </table>                 
+    <body>	
+        <section class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <jsp:include page="nav.jsp"/>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="seccion fuente">
+                                <div class="titulo-secciones border-panel center-text sombra">
+                                    <h1 >Registrar cliente</h1>
+                                </div>
+                                <div id="alerta"></div>
+                                <div class="seccion seccion-R-Animal border-panel sombra">
+                                    <form onSubmit="registrarCliente(document.forms[0]);
+                                    return false" id="form">
+                                        <div class="border-panel conjunto-registrar">
+                                            <table>
+                                                <tr>
+                                                    <td>
+                                                        <label class="text-pequeno tamano-cajas">DNI:</label>
+                                                    </td>
+                                                    <td>
+                                                        <input required type="number"  name="dni" maxlength="4" class="text-pequeno center-text tamano-cajas"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <label class="text-pequeno tamano-cajas">Nombres:</label>
+                                                    </td>
+                                                    <td>
+                                                        <input required type="text" name="nombre" class="text-pequeno center-text tamano-cajas"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <label class="text-pequeno tamano-cajas">Apellidos:</label>
+                                                    </td>
+                                                    <td>
+                                                        <input required type="text" name="apellido" class="text-pequeno center-text tamano-cajas"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <label class="text-pequeno tamano-cajas">Celular:</label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="number" name="celular" class="text-pequeno center-text tamano-cajas"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <label class="text-pequeno tamano-cajas">Dirección:</label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="direccion" class="text-pequeno center-text tamano-cajas"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <label class="text-pequeno tamano-cajas">Email:</label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="email" name="email" class="text-pequeno center-text tamano-cajas"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <label class="text-pequeno tamano-cajas">Teléfono:</label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="number" name="telefono" class="text-pequeno center-text tamano-cajas"/>
+                                                    </td>
+                                                </tr>
+                                            </table>                 
+                                        </div>
+                                        <div>
+                                            <center>
+                                                <button class="center-text sombra boton fuente">Registrar</button>
+                                            </center>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <center>
-                                <button class="center-text sombra boton fuente">Registrar</button>
-                            </center>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </section>

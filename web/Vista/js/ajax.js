@@ -74,23 +74,23 @@ function registrarEmpleado(document) {
             var sub = xhttp.responseText;
             if (sub.indexOf("false") >= 0) {
                 $("div").remove("#alert");
-                $("section").prepend("<div id='alert' class='alert alert-warning center-text'>" +
+                $("#alerta").prepend("<div id='alert' class='alert alert-warning center-text'>" +
                         "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>" +
                         "Existe otro empleado registrado con el DNI: " + dni + "</div>");
             } else if (sub.indexOf("Error") >= 0) {
                 $("div").remove("#alert");
-                $("section").prepend("<div id='alert' class='alert alert-danger center-text'>" +
+                $("#alerta").prepend("<div id='alert' class='alert alert-danger center-text'>" +
                         "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>" +
                         "Error en la conexión a la base de datos</div>");
             } else if (sub.indexOf("true") >= 0) {
                 $("div").remove("#alert");
-                $("section").prepend("<div id='alert' class='alert alert-success center-text'>" +
+                $("#alerta").prepend("<div id='alert' class='alert alert-success center-text'>" +
                         "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>" +
                         "Empleado registrado exitosamente</div>");
                 $("#form")[0].reset();
             } else if (sub.indexOf("Numero") >= 0){
                 $("div").remove("#alert");
-                $("section").prepend("<div id='alert' class='alert alert-warning center-text'>" +
+                $("#alerta").prepend("<div id='alert' class='alert alert-warning center-text'>" +
                         "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>" +
                         "Los campos DNI y Teléfono solo reciben numeros" + "</div>");
             }
@@ -116,17 +116,17 @@ function registrarExamen(document) {
             var sub = xhttp.responseText;
             if (sub.indexOf("false") >= 0) {
                 $("div").remove("#alert");
-                $("section").prepend("<div id='alert' class='alert alert-warning center-text'>" +
+                $("#alerta").prepend("<div id='alert' class='alert alert-warning center-text'>" +
                         "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>" +
                         "Ocurrio un error al registrar el examen"+"</div>");
             } else if (sub.indexOf("Error") >= 0) {
                 $("div").remove("#alert");
-                $("section").prepend("<div id='alert' class='alert alert-danger center-text'>" +
+                $("#alerta").prepend("<div id='alert' class='alert alert-danger center-text'>" +
                         "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>" +
                         "Error en la conexión a la base de datos</div>");
             } else if (sub.indexOf("true") >= 0) {
                 $("div").remove("#alert");
-                $("section").prepend("<div id='alert' class='alert alert-success center-text'>" +
+                $("#alerta").prepend("<div id='alert' class='alert alert-success center-text'>" +
                         "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>" +
                         "Examen registrado exitosamente</div>");
                 $("#form")[0].reset();
@@ -159,23 +159,23 @@ function registrarCliente(document) {
             var sub = xhttp.responseText;
             if (sub.indexOf("false") >= 0) {
                 $("div").remove("#alert");
-                $("section").prepend("<div id='alert' class='alert alert-warning center-text'>" +
+                $("#alerta").prepend("<div id='alert' class='alert alert-warning center-text'>" +
                         "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>" +
                         "Existe otro cliente registrado con el DNI: " + dni + "</div>");
             } else if (sub.indexOf("Error") >= 0) {
                 $("div").remove("#alert");
-                $("section").prepend("<div id='alert' class='alert alert-danger center-text'>" +
+                $("#alerta").prepend("<div id='alert' class='alert alert-danger center-text'>" +
                         "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>" +
                         "Error en la conexión a la base de datos</div>");
             } else if (sub.indexOf("true") >= 0) {
                 $("div").remove("#alert");
-                $("section").prepend("<div id='alert' class='alert alert-success center-text'>" +
+                $("#alerta").prepend("<div id='alert' class='alert alert-success center-text'>" +
                         "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>" +
                         "Cliente registrado exitosamente</div>");
                 $("#form")[0].reset();
             } else if (sub.indexOf("Numero") >= 0){
                 $("div").remove("#alert");
-                $("section").prepend("<div id='alert' class='alert alert-warning center-text'>" +
+                $("#alerta").prepend("<div id='alert' class='alert alert-warning center-text'>" +
                         "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>" +
                         "Los campos DNI, Teléfono y Celular solo reciben numeros" + "</div>");
             }
@@ -207,17 +207,17 @@ function actualizarCliente(document) {
             var sub = xhttp.responseText;
             if (sub.indexOf("false") >= 0) {
                 $("div").remove("#alert");
-                $("section").prepend("<div id='alert' class='alert alert-warning center-text'>" +
+                $("#alerta").prepend("<div id='alert' class='alert alert-warning center-text'>" +
                         "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>" +
                         "No se encotro el cliente registrado con el DNI: " + dni + "</div>");
             } else if (sub.indexOf("Error") >= 0) {
                 $("div").remove("#alert");
-                $("section").prepend("<div id='alert' class='alert alert-danger center-text'>" +
+                $("#alerta").prepend("<div id='alert' class='alert alert-danger center-text'>" +
                         "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>" +
                         "Error en la conexión a la base de datos</div>");
             } else if (sub.indexOf("Numero") >= 0){
                 $("div").remove("#alert");
-                $("section").prepend("<div id='alert' class='alert alert-warning center-text'>" +
+                $("#alerta").prepend("<div id='alert' class='alert alert-warning center-text'>" +
                         "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>" +
                         "Los campos DNI, Teléfono y Celular solo reciben numeros" + "</div>");
             } else {
@@ -239,8 +239,6 @@ function registrarServicio(document) {
     var xhttp = new XMLHttpRequest();
     var text = "/Veterinaria/ControladorServicio?nombre=" + nombre + "&notas=" 
             + notas + "&caracter=" + caracter + "&registrarServicio=true";
-    alert("/Veterinaria/ControladorServicio?nombre=" + nombre + "&notas=" 
-            + notas + "&caracter=" + caracter + "&registrarServicio=true");
     xhttp.open("POST", text, true);
     xhttp.send();
     xhttp.onreadystatechange = function () {
@@ -248,19 +246,68 @@ function registrarServicio(document) {
             var sub = xhttp.responseText;
             if (sub.indexOf("false") >= 0) {
                 $("div").remove("#alert");
-                $("section").prepend("<div id='alert' class='alert alert-warning center-text'>" +
+                $("#alerta").prepend("<div id='alert' class='alert alert-warning center-text'>" +
                         "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>" +
                         "Ocurrio un error al registrar el servicio"+"</div>");
             } else if (sub.indexOf("Error") >= 0) {
                 $("div").remove("#alert");
-                $("section").prepend("<div id='alert' class='alert alert-danger center-text'>" +
+                $("#alerta").prepend("<div id='alert' class='alert alert-danger center-text'>" +
                         "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>" +
                         "Error en la conexión a la base de datos</div>");
             } else if (sub.indexOf("true") >= 0) {
                 $("div").remove("#alert");
-                $("section").prepend("<div id='alert' class='alert alert-success center-text'>" +
+                $("#alerta").prepend("<div id='alert' class='alert alert-success center-text'>" +
                         "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>" +
                         "Servicio registrado exitosamente</div>");
+                $("#form")[0].reset();
+            }
+        }
+    }
+}
+
+/**
+ * Metodo que envia la peticion de registrar una mascota al controlador.
+ * @param {type} document Formulario.
+ * @returns {undefined}
+ */
+function registrarMascota(document) {
+    dni = document.elements[0].value;
+    nombre = document.elements[1].value;
+    especie = document.elements[2].value;
+    raza = document.elements[3].value;
+    sexo = document.elements[4].value;
+    notas = document.elements[5].value;
+    nacimiento = document.elements[6].value;
+    color = document.elements[7].value;
+    tamanio = document.elements[8].value;
+    pelo = document.elements[9].value;
+    var xhttp = new XMLHttpRequest();
+    var text = "/Veterinaria/ControladorMascota?nombre=" + nombre + "&notas=" 
+            + notas + "&especie=" 
+            + especie + "&raza=" + raza + "&sexo=" + sexo +
+            "&nacimiento=" + nacimiento + "&color=" + color + "&tamanio=" + tamanio + 
+            "&pelo=" + pelo + "&dni=" + dni +  "&registrarMascota=true";
+    xhttp.open("POST", text, true);
+    xhttp.send();
+    xhttp.onreadystatechange = function () {
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+            var sub = xhttp.responseText;
+            alert(sub);
+            if (sub.indexOf("false") >= 0) {
+                $("div").remove("#alert");
+                $("#alerta").prepend("<div id='alert' class='alert alert-warning center-text'>" +
+                        "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>" +
+                        "Ocurrio un error al registrar la mascota"+"</div>");
+            } else if (sub.indexOf("Error") >= 0) {
+                $("div").remove("#alert");
+                $("#alerta").prepend("<div id='alert' class='alert alert-danger center-text'>" +
+                        "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>" +
+                        "Error en la conexión a la base de datos</div>");
+            } else if (sub.indexOf("true") >= 0) {
+                $("div").remove("#alert");
+                $("#alerta").prepend("<div id='alert' class='alert alert-success center-text'>" +
+                        "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>" +
+                        "Mascota registrada exitosamente</div>");
                 $("#form")[0].reset();
             }
         }

@@ -8,14 +8,17 @@ package co.edu.sena.veterinaria.modelo;
 import co.edu.sena.veterinaria.modelo.dao.DAOCliente;
 import co.edu.sena.veterinaria.modelo.dao.DAOEmpleado;
 import co.edu.sena.veterinaria.modelo.dao.DAOExamen;
+import co.edu.sena.veterinaria.modelo.dao.DAOMascota;
 import co.edu.sena.veterinaria.modelo.dao.DAOServicio;
 import co.edu.sena.veterinaria.modelo.dto.ClienteDTO;
 import co.edu.sena.veterinaria.modelo.dto.EmpleadoDTO;
 import co.edu.sena.veterinaria.modelo.dto.ExamenDTO;
+import co.edu.sena.veterinaria.modelo.dto.MascotaDTO;
 import co.edu.sena.veterinaria.modelo.dto.ServicioDTO;
 import co.edu.sena.veterinaria.modelo.seguridad.MD5;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 /**
  * Clase fachada.
@@ -188,6 +191,41 @@ public class Fachada implements Serializable{
     public boolean modificarEstadoServicio(int cod, boolean nuevoEstado) throws Exception {
         DAOServicio dao = new DAOServicio();
         return dao.modificarEstadoServicio(cod, nuevoEstado);
+    }
+    
+    /**
+     * Metodo que envia la peticion de registro de una mascota a DAOMascota.
+     * @param nombre Nombre de la mascota.
+     * @param especie Especie de la mascota.
+     * @param raza Raza de la mascota.
+     * @param color Color de la mascota.
+     * @param tamanio Tamanio de la mascota.
+     * @param sexo Sexo de la mascota.
+     * @param notas Notas sobre la mascota.
+     * @param pelo Tamaño del pelo de la mascota.
+     * @param nacimiento Fecha de nacimiento de la mascota.
+     * @param dni DNI del cliente del dueño de la mascota.
+     * @return True si el procedimiento se ejecuto normalmente.
+     * @throws Exception Si existe un error al conectarse a la base de datos.
+     */
+    public boolean registrarMascota(String nombre, String especie, String raza, String color, 
+            String tamanio, String sexo, String notas, String pelo, Calendar nacimiento, long dni) throws Exception{
+        MascotaDTO dto = new MascotaDTO(nombre, especie, raza, color, tamanio, 
+                sexo, notas, pelo, nacimiento);
+        dto.getCliente().setDni(dni);
+        DAOMascota dao = new DAOMascota();
+        return dao.registrarMascota(dto);
+    }
+    
+    /**
+     * Metodo que consulta las mascotas de un cliente.
+     * @param dni DNI del cliente dueño de las mascotas.
+     * @return ArrayList de MascotaDTO
+     * @throws Exception Si existe una exception al conectarse a la base de datos.
+     */
+    public ArrayList<MascotaDTO> consultarMascotas(Long dni) throws Exception{
+        DAOMascota dao  = new DAOMascota();
+        return dao.consultarMascotas(dni);
     }
     
 }

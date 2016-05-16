@@ -32,100 +32,110 @@
         </script>
     </head>
     <body>
-        <jsp:include page="nav.jsp"/>
-        <%
-            String mensaje = session.getAttribute("msjCE") + "";
-            if (!mensaje.equals("null")) {
-                if (mensaje.contains("Error")) {
-        %>
-        <div class="alert alert-danger center-text" role="alert" arial >
-            <%=mensaje%>
-            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        </div>
-        <%
-            } else if (mensaje.contains("habilitado")) {%>
-        <div class="alert alert-success center-text" role="alert" arial >
-            <%=mensaje%>
-            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        </div>             
-        <% } else {%>
-        <div class="alert alert-warning center-text" role="alert" arial >
-            <%=mensaje%>
-            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        </div>            
-        <%      }
-                session.removeAttribute("msjCE");
-            }
-        %>
-        <section>
-            <div class="center-text">
-                <h1>Consultar Empleado</h1>
-            </div>
-            <form action="/Veterinaria/ControladorEmpleado" method="post">
-                <div class="conjunto-registrar">
-                    <div class="center-text">
-                        <label for="sel" >Buscar por:</label>  
-                        <select name="sel" class="tamañoConsultar" id="sel" required onchange="capturar()" >
-                            <option value="" >Seleccione</option>
-                            <option value="Todos" >Todos</option>
-                            <option value="nom" >Nombre</option>
-                            <option value="dni">DNI</option>
-                        </select>
-                        <label for="buscar" >Información:</label> 
-                        <input type="text" name="buscar" id="buscar" class="text-pequeno center-text tamano-cajas" /> 
-                        <button class="center-text sombra boton-pequeno" type="submit" name="consultarEmpleado" class="fuente">Consultar</button>	        
-                    </div>      
-                </div>
-            </form>
-            <div>
-                <center class="container">
-                    <table class="table"  border="0" cellspacing="0">
-                        <thead>
-                            <tr>
-                                <th class="center-text">DNI</th>
-                                <th class="center-text">Nombre</th>
-                                <th class="center-text">Teléfono</th>
-                                <th class="center-text">E-mail</th>
-                                <th class="center-text">Dirección</th>
-                                <th class="center-text">Tipo</th>
-                                <th class="center-text">Estado</th>
-                            </tr>
-                        </thead>
-                        <tbody>
+        <section class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <jsp:include page="nav.jsp"/>
+                    <div class="row">
+                        <div class="col-md-12">
                             <%
-                                if (session.getAttribute("arrayEmp") instanceof ArrayList) {
-                                    ArrayList<EmpleadoDTO> dtos = (ArrayList) session.getAttribute("arrayEmp");
-                                    for (int i = 0; i < dtos.size(); i++) {
+                                String mensaje = session.getAttribute("msjCE") + "";
+                                if (!mensaje.equals("null")) {
+                                    if (mensaje.contains("Error")) {
                             %>
-                            <tr>
-                                <td class="center-text"><%=dtos.get(i).getDni()%></td>
-                                <td class="center-text"><%=dtos.get(i).getNombre() + " " + dtos.get(i).getApellido()%></td>
-                                <td class="center-text"><%=dtos.get(i).getTelefono()%></td>
-                                <td class="center-text"><%=dtos.get(i).getEmail()%></td>
-                                <td class="center-text"><%=dtos.get(i).getDireccion()%></td>
-                                <td class="center-text"><%=dtos.get(i).getTipo()%></td>
-                                <td class="center-text">
-                                    <%if (dtos.get(i).isHabilitado()) { %>
-                                    <a href="/Veterinaria/ControladorEmpleado?dni=<%=dtos.get(i).getDni()%>&estado=<%=dtos.get(i).isHabilitado()%>&modificarEstado=true"
-                                       data-toggle="tooltip" data-placement="top" title="Habilitado">
-                                        <span class="glyphicon glyphicon-ok asd "></span>
-                                    </a>
-                                    <% } else { %>
-                                    <a href="/Veterinaria/ControladorEmpleado?dni=<%=dtos.get(i).getDni()%>&estado=<%=dtos.get(i).isHabilitado()%>&modificarEstado=true"
-                                       data-toggle="tooltip" data-placement="top" title="Deshabilitado">
-                                        <span class="glyphicon glyphicon-remove asd "></span>
-                                        <% } %>
-                                    </a>
-                                </td>
-                            </tr>
+                            <div class="alert alert-danger center-text" role="alert" arial >
+                                <%=mensaje%>
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            </div>
                             <%
-                                    }
-                                    session.removeAttribute("arrayEmp");
+        } else if (mensaje.contains("habilitado")) {%>
+                            <div class="alert alert-success center-text" role="alert" arial >
+                                <%=mensaje%>
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            </div>             
+                            <% } else {%>
+                            <div class="alert alert-warning center-text" role="alert" arial >
+                                <%=mensaje%>
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            </div>            
+                            <%      }
+                                    session.removeAttribute("msjCE");
                                 }
                             %>
-                        </tbody>
-                    </table>
-                </center>
+                            <section>
+                                <div class="center-text">
+                                    <h1>Consultar Empleado</h1>
+                                </div>
+                                <form action="/Veterinaria/ControladorEmpleado" method="post">
+                                    <div class="conjunto-registrar">
+                                        <div class="center-text">
+                                            <label for="sel" >Buscar por:</label>  
+                                            <select name="sel" class="tamañoConsultar" id="sel" required onchange="capturar()" >
+                                                <option value="" >Seleccione</option>
+                                                <option value="Todos" >Todos</option>
+                                                <option value="nom" >Nombre</option>
+                                                <option value="dni">DNI</option>
+                                            </select>
+                                            <label for="buscar" >Información:</label> 
+                                            <input type="text" name="buscar" id="buscar" class="text-pequeno center-text tamano-cajas" /> 
+                                            <button class="center-text sombra boton-pequeno" type="submit" name="consultarEmpleado" class="fuente">Consultar</button>	        
+                                        </div>      
+                                    </div>
+                                </form>
+                                <div>
+                                    <center>
+                                        <table class="table"  border="0" cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th class="center-text">DNI</th>
+                                                    <th class="center-text">Nombre</th>
+                                                    <th class="center-text">Teléfono</th>
+                                                    <th class="center-text">E-mail</th>
+                                                    <th class="center-text">Dirección</th>
+                                                    <th class="center-text">Tipo</th>
+                                                    <th class="center-text">Estado</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <%
+                                                    if (session.getAttribute("arrayEmp") instanceof ArrayList) {
+                                                        ArrayList<EmpleadoDTO> dtos = (ArrayList) session.getAttribute("arrayEmp");
+                                                        for (int i = 0; i < dtos.size(); i++) {
+                                                %>
+                                                <tr>
+                                                    <td class="center-text"><%=dtos.get(i).getDni()%></td>
+                                                    <td class="center-text"><%=dtos.get(i).getNombre() + " " + dtos.get(i).getApellido()%></td>
+                                                    <td class="center-text"><%=dtos.get(i).getTelefono()%></td>
+                                                    <td class="center-text"><%=dtos.get(i).getEmail()%></td>
+                                                    <td class="center-text"><%=dtos.get(i).getDireccion()%></td>
+                                                    <td class="center-text"><%=dtos.get(i).getTipo()%></td>
+                                                    <td class="center-text">
+                                                        <%if (dtos.get(i).isHabilitado()) {%>
+                                                        <a href="/Veterinaria/ControladorEmpleado?dni=<%=dtos.get(i).getDni()%>&estado=<%=dtos.get(i).isHabilitado()%>&modificarEstado=true"
+                                                           data-toggle="tooltip" data-placement="top" title="Habilitado">
+                                                            <span class="glyphicon glyphicon-ok asd "></span>
+                                                        </a>
+                                                        <% } else {%>
+                                                        <a href="/Veterinaria/ControladorEmpleado?dni=<%=dtos.get(i).getDni()%>&estado=<%=dtos.get(i).isHabilitado()%>&modificarEstado=true"
+                                                           data-toggle="tooltip" data-placement="top" title="Deshabilitado">
+                                                            <span class="glyphicon glyphicon-remove asd "></span>
+                                                            <% } %>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <%
+                                                        }
+                                                        session.removeAttribute("arrayEmp");
+                                                    }
+                                                %>
+                                            </tbody>
+                                        </table>
+                                    </center>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </body>
